@@ -1,0 +1,36 @@
+﻿<div>
+    <form method="post">
+        <label>Введите размерность квадратной матрицы:</label>
+        <input type="number" id="Size" name="Size" value="@ViewBag.Size" />
+        <input type="submit" value="Вычислить" />
+    </form>
+    @if (ViewBag.Matrix != null)
+    {
+        <h3>Матрица:</h3>
+        <table border="1">
+            @for (int i = 0; i < ViewBag.Size; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < ViewBag.Size; j++)
+                    {
+                        <td>@ViewBag.Matrix[i, j]</td>
+                    }
+                </tr>
+            }
+        </table>
+        <h3>Минимальные элементы в каждом столбце:</h3>
+        <ul>
+            @foreach (var minInColumn in ViewBag.MinInColumns)
+            {
+                <li>@minInColumn</li>
+            }
+        </ul>
+        <h3>Максимальные элементы в каждой строке:</h3>
+        <ul>
+            @foreach (var maxInRow in ViewBag.MaxInRows)
+            {
+                <li>@maxInRow</li>
+            }
+        </ul>
+    }
+</div>

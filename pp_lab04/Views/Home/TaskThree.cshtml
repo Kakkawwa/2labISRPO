@@ -1,0 +1,21 @@
+﻿<div>
+    <form method="post">
+        <input type="submit" value="Сгенерировать матрицу и вычислить" />
+    </form>
+    @if (ViewBag.Matrix != null)
+    {
+        <h3>Матрица 5x5:</h3>
+        <table border="1">
+            @for (int i = 0; i < 5; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < 5; j++)
+                    {
+                        <td>@ViewBag.Matrix[i, j]</td>
+                    }
+                </tr>
+            }
+        </table>
+        <h3>Среднее арифметическое минимальных элементов столбцов: @ViewBag.Average</h3>
+    }
+</div>
